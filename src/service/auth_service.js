@@ -1,9 +1,11 @@
+
 import { initializeApp } from 'firebase/app'
 import {
     getAuth, 
     signInWithPopup,
     GoogleAuthProvider,
     GithubAuthProvider,
+    onAuthStateChanged,
 } from 'firebase/auth'
 
 // Your web app's Firebase configuration
@@ -31,6 +33,16 @@ class AuthService {
     const auth = getAuth()
     return signInWithPopup(auth, provider)
   }
+
+  logout(){
+    //firebase.auth().signOut();
+  }
+
+ /* onAuthChange(onUserChanged) {
+    return onAuthStateChanged(user => {
+      onUserChanged(user);
+    })
+  } */
 }
 
 export default AuthService
